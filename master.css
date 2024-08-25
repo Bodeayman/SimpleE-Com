@@ -1,0 +1,148 @@
+.nav-item,
+.navbar-brand {
+    margin: 20px;
+}
+
+* {
+    font-family: "Kumbh Sans";
+    box-sizing: border-box;
+}
+
+.cartSec {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cartSec * {}
+
+
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+    padding: 30px;
+    height: 90vh;
+    width: 100%;
+
+}
+
+.images {
+
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bigImg {
+    height: 80%;
+    margin-bottom: 10px;
+}
+
+.slider img {
+    width: 15%;
+    margin: 5%;
+    transition: 0.1s ease;
+    -webkit-transition: 0.1s ease;
+    -moz-transition: 0.1s ease;
+    -ms-transition: 0.1s ease;
+    -o-transition: 0.1s ease;
+}
+
+.slider img:hover {
+    opacity: 0.7;
+}
+
+.bigImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.inter {
+    width: 50%;
+    padding: 60px;
+
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.add {
+    width: 50%;
+    padding: 15px;
+}
+
+.desc {
+    text-wrap: wrap;
+    letter-spacing: 1px;
+}
+
+.inter * {
+    padding: 10px 0px 10px 0px;
+}
+
+.activited {
+    border: 2px solid orange;
+    opacity: 0.7;
+}
+
+.buttonRight {
+    position: relative;
+    left: 500px;
+    width: 50px;
+    height: 50px;
+    bottom: 220px;
+
+
+}
+
+.buttonLeft {
+    position: relative;
+    right: 130px;
+    width: 50px;
+    height: 50px;
+    bottom: 220px;
+}
+
+.buttonLeft,
+.buttonRight {
+    border-radius: 500px;
+
+    background-color: white;
+}
+
+.dropdown-menu {
+
+    position: absolute !important;
+    float: left;
+    right: 500px !important;
+    width: 250px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.add {}
+
+.piller {}
+
+/* .cartSec {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartSec .cartIcon {
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.cartSec .avater {
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+} */

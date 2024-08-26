@@ -51,7 +51,8 @@
     -o-transition: 0.1s ease;
 }
 
-.slider img:hover {
+.slider img:hover,
+.avater:hover {
     opacity: 0.7;
 }
 
@@ -98,6 +99,7 @@
     bottom: 220px;
 
 
+
 }
 
 .buttonLeft {
@@ -128,6 +130,13 @@
 .add {}
 
 .piller {}
+
+
+.navSelected {
+    border-bottom: 2px solid green;
+}
+
+.cartIcon {}
 
 /* .cartSec {
     width: 400px;

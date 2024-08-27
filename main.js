@@ -6,6 +6,16 @@ let currentImage = 1; // this will be used for traversing through images
 let counterPay = 0; // a number that saved to show the data
 let pricing = document.querySelector(".price");
 
+
+function githubDomain() {
+    let url = window.location.origin;
+    if (url.includes("github")) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 let items = [
     {
         data_set: 1,
@@ -89,6 +99,11 @@ bigimg.addEventListener("click", function () {
     console.log("Clicked");
     modalBig.children.length = 0;
     modalImg.src = `${window.location.origin}/images/image-product-1.jpg`;
+
+    if (githubDomain()) {
+        modalImg.src = `${window.location.origin}/${window.location.pathname}/images/image-product-1.jpg`;
+
+    }
     modalImg.style.cssText = "width:450px;height:400px;object-fit:contain;";
     modalBig.appendChild(modalImg);
     modalfoo.style.cssText = "display:flex;flex-direction:row;justify-content:space-around; flex-wrap:nowrap;"
@@ -101,12 +116,20 @@ bigimg.addEventListener("click", function () {
 })
 let counter = 1;
 buttonright.addEventListener("click", function () {
-    modalImg.src = `${window.location.origin}/images/image-product-${(counter % 4) + 1}.jpg`;
+    if (githubDomain()) {
+
+        modalImg.src = `${window.location.origin}/${window.location.pathname}/images/image-product-${(counter % 4) + 1}.jpg`;
+
+    }
     counter++;
 
 })
 buttonleft.addEventListener("click", function () {
-    modalImg.src = `${window.location.origin}/images/image-product-${(counter % 4) + 1}.jpg`;
+    if (githubDomain()) {
+
+        modalImg.src = `${window.location.origin}/${window.location.pathname}/images/image-product-${(counter % 4) + 1}.jpg`;
+
+    }
 
     counter++;
 
@@ -223,6 +246,10 @@ carting.addEventListener("click", function () {
                 let trash = document.createElement("img");
 
                 trash.src = `${window.location.origin}/images/icon-delete.svg`;
+                if (githubDomain()) {
+                    trash.src = `${window.location.origin}/${window.location.pathname}/images/icon-delete.svg`;
+
+                }
                 trash.addEventListener("click", function () {
                     this.parentElement.remove();
                 })
@@ -256,4 +283,5 @@ carting.addEventListener("click", function () {
     }
 
 })
+
 

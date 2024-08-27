@@ -12,28 +12,28 @@ let items = [
         quantity: 0,
         price: `150.00`,
         discount: 10,
-        url: "http://127.0.0.1:5500/images/image-product-1.jpg"
+        url: "./images/image-product-1.jpg"
     },
     {
         data_set: 2,
         quantity: 0,
         price: `200.00`,
         discount: 30,
-        url: "http://127.0.0.1:5500/images/image-product-2.jpg"
+        url: "./images/image-product-2.jpg"
     },
     {
         data_set: 3,
         quantity: 0,
         price: `300.00`,
         discount: 40,
-        url: "http://127.0.0.1:5500/images/image-product-3.jpg"
+        url: "./images/image-product-3.jpg"
     },
     {
         data_set: 4,
         quantity: 0,
         price: `250.00`,
         discount: 60,
-        url: "http://127.0.0.1:5500/images/image-product-4.jpg"
+        url: "./images/image-product-4.jpg"
     }
 ]
 let itemsBought = [
@@ -41,9 +41,11 @@ let itemsBought = [
 ]
 //http://127.0.0.1:5500/images/image-product-4.jpg
 // https://bodeayman.github.io/SimpleE-Com/imag.jpg
+let regex = /((https|http):\/\/(((\d{1,3}\.){3}\d{1,3}(:\d+)?)|(\w+.\w+.\w+))(\/SimpleE-Com)?|.?)\/images\/image-product-[0-4].jpg/
+let regtrash = /((https|http):\/\/(((\d{1,3}\.){3}\d{1,3}(:\d+)?)|(\w+.\w+.\w+))(\/SimpleE-Com)?|.?)\/images\/icon-delete.svg/
 
+items.forEach((e) => console.log(e["url"].match(regex)))
 
-// let regex = /https:\/\/(bodeayman.github.io\/SimpleE-Com\/|127.0.0.1:5500\/)images\//
 
 
 addEventListener("click", function (ele) {
@@ -52,14 +54,12 @@ addEventListener("click", function (ele) {
         let link = ele.target.src;
         images.forEach((img) => img.classList.remove("activited"));
         ele.target.className += " activited";
-        let list = link.split("");
-        list.length = 44;
-        let newLink = list.join("");
-        newLink += ".jpg";
+        newLink = link.match(/images\/image-product-[0-4]-thumbnail.jpg/)[0].replace("-thumbnail", "");
+
         newLinkGlobal = newLink;
         console.log(newLink);
         bigimg.src = newLink;
-        currentImage = newLinkGlobal[43];
+        currentImage = parseInt(newLink.match(/image-product-(\d+)\.jpg/)[1]);
         // When you click on images
         quantity.innerHTML = items[currentImage - 1]["quantity"];
         counterPay = items[currentImage - 1]["quantity"];
@@ -88,7 +88,7 @@ buttonleft.innerHTML = "<<";
 bigimg.addEventListener("click", function () {
     console.log("Clicked");
     modalBig.children.length = 0;
-    modalImg.src = "images/image-product-1.jpg";
+    modalImg.src = `${window.location.origin}/images/image-product-1.jpg`;
     modalImg.style.cssText = "width:450px;height:400px;object-fit:contain;";
     modalBig.appendChild(modalImg);
     modalfoo.style.cssText = "display:flex;flex-direction:row;justify-content:space-around; flex-wrap:nowrap;"
@@ -101,12 +101,12 @@ bigimg.addEventListener("click", function () {
 })
 let counter = 1;
 buttonright.addEventListener("click", function () {
-    modalImg.src = `images/image-product-${(counter % 4) + 1}.jpg`;
+    modalImg.src = `${window.location.origin}/images/image-product-${(counter % 4) + 1}.jpg`;
     counter++;
 
 })
 buttonleft.addEventListener("click", function () {
-    modalImg.src = `images/image-product-${(counter % 4) + 1}.jpg`;
+    modalImg.src = `${window.location.origin}/images/image-product-${(counter % 4) + 1}.jpg`;
 
     counter++;
 
@@ -204,7 +204,7 @@ carting.addEventListener("click", function () {
         dropdownCart.appendChild(dropdownCartItems);
         dropdownCart.style.cssText = `float:right;z-index:100;border:2px solid black;
         background-color:rgba(255,255,255,100%);width:300px;border-radius:50px;position:absolute;right:150px;bottom:50%;max-height: 300px; /* Adjust as needed */
-            overflow-y: auto;
+            overflow-y: auto;padding:20px;
         
         `
         itemsBought.forEach((obj) => {
@@ -213,7 +213,7 @@ carting.addEventListener("click", function () {
                 singleItemInDrop.style.cssText = "display:flex;flex-direction:row;justify-content:space-between;align-items:center;";
 
                 let imageInCart = document.createElement("img");
-                imageInCart.src = obj["url"];
+                imageInCart.src = obj["url"].match(regex)[0];
                 imageInCart.style.cssText = `width:100px;height:100px;object-fit:contain;`;
                 singleItemInDrop.appendChild(imageInCart);
                 singleItemInDrop.innerHTML += `<div>
@@ -222,8 +222,10 @@ carting.addEventListener("click", function () {
                 </div>`;
                 let trash = document.createElement("img");
 
-                trash.src = "./images/icon-delete.svg";
-
+                trash.src = `${window.location.origin}/images/icon-delete.svg`;
+                trash.addEventListener("click", function () {
+                    this.parentElement.remove();
+                })
                 singleItemInDrop.appendChild(trash);
 
 
@@ -241,7 +243,7 @@ carting.addEventListener("click", function () {
 
 
         dropdownCart.appendChild(dropdownButton);
-        dropdownCart.style.bottom -= `${itemsBought.length * 2.5}%`;
+        dropdownCart.style.bottom -= `${itemsBought.length * 3}%`;
 
         document.body.appendChild(dropdownCart);
 
@@ -255,8 +257,3 @@ carting.addEventListener("click", function () {
 
 })
 
-addEventListener("click", (e) => {
-    if (e.target == "<img src='./images/icon-delete.svg'>") {
-        e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-    }
-})

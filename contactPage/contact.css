@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+.contactForm {
+    width: 50%;
+    padding: 20px;
+    border-radius: 50px;
+    margin: 10px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+
+    -o-border-radius: 50px;
+}
+
+.contactForm form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.contactForm form * {
+    margin: 10px;
+
+
+}
+
+textarea {
+    width: 100%;
+}
+
+.contactForm form div input {
+    width: 100%;
+}
+
+.contactFormIntro {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.mainContact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

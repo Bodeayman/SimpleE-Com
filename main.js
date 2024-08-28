@@ -128,7 +128,7 @@ bigimg.addEventListener("click", function () {
 
     modalImg.style.cssText = "width:450px;height:400px;object-fit:contain;";
 
-    if (screen.availWidth <= 500) {
+    if (screen.availWidth <= 370) {
         modalImg.style.cssText = "width:300px;height:300px;"
         // modalImgs.forEach((e) => { e.style.setProperty("width", "10px"); e.style.setProperty("height", "10px") })
         console.log(modalImgs);
@@ -253,7 +253,7 @@ carting.addEventListener("click", function () {
         dropdownCart.appendChild(dropdownHeader);
         dropdownCart.appendChild(dropdownline);
         dropdownCart.appendChild(dropdownCartItems);
-        if (screen.availWidth <= 500) {
+        if (screen.availWidth <= 370) {
             dropdownCart.style.cssText = `float:top;z-index:100;border:2px solid black;
             background-color:rgba(255,255,255,100%);width:300px;border-radius:50px;position:absolute;right:30px;bottom:40%;max-height: 300px; /* Adjust as needed */
                 overflow-y: auto;padding:20px;

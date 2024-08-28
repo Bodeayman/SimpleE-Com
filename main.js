@@ -1,3 +1,20 @@
+
+
+
+/*
+This is our ecommerce project And there are the commands with the comments underneath it 
+somenew information
+(
+1- screen.availWidth => checks what is the current width of the device
+2- window.location.href = full link , .pathname = the local page , .origin = the root
+3- offetX, offsetY => the current x or y value 
+4- finds the substring and check this .includes
+5- delete a substring from the full string .replaces("string","target")
+
+
+)
+*/
+
 // when you click on the image to let it the new big image
 let images = Array.from(document.querySelectorAll(".slider img"));
 let bigimg = document.querySelector(".bigImg img");
@@ -6,6 +23,9 @@ let currentImage = 1; // this will be used for traversing through images
 let counterPay = 0; // a number that saved to show the data
 let pricing = document.querySelector(".price");
 
+// window.onscroll = () => console.log(screen.availWidth);
+
+// this is for the new width of the device
 
 function githubDomain() {
     let url = window.location.origin;
@@ -54,7 +74,7 @@ let itemsBought = [
 let regex = /((https|http):\/\/(((\d{1,3}\.){3}\d{1,3}(:\d+)?)|(\w+.\w+.\w+))(\/SimpleE-Com)?|.?)\/images\/image-product-[0-4].jpg/
 let regtrash = /((https|http):\/\/(((\d{1,3}\.){3}\d{1,3}(:\d+)?)|(\w+.\w+.\w+))(\/SimpleE-Com)?|.?)\/images\/icon-delete.svg/
 
-items.forEach((e) => console.log(e["url"].match(regex)))
+// items.forEach((e) => console.log(e["url"].match(regex)))
 
 
 
@@ -67,7 +87,7 @@ addEventListener("click", function (ele) {
         newLink = link.match(/images\/image-product-[0-4]-thumbnail.jpg/)[0].replace("-thumbnail", "");
 
         newLinkGlobal = newLink;
-        console.log(newLink);
+        // console.log(newLink);
         bigimg.src = newLink;
         currentImage = parseInt(newLink.match(/image-product-(\d+)\.jpg/)[1]);
         // When you click on images
@@ -90,13 +110,14 @@ let modalfoo = document.querySelector(".modal-footer");
 let buttonright = document.createElement("button");
 let buttonleft = document.createElement("button");
 let modal = document.querySelector(".modal-content");
+let modalImgs = document.querySelectorAll(".modal-footer img");
 buttonright.className = "buttonRight btn btn-light";
 buttonleft.className = "buttonLeft btn btn-light";
 buttonright.innerHTML = ">>";
 buttonleft.innerHTML = "<<";
 
 bigimg.addEventListener("click", function () {
-    console.log("Clicked");
+    // console.log("Clicked");
     modalBig.children.length = 0;
     modalImg.src = `${window.location.origin}/images/image-product-1.jpg`;
 
@@ -104,18 +125,26 @@ bigimg.addEventListener("click", function () {
         modalImg.src = `${window.location.origin}/${window.location.pathname}/images/image-product-1.jpg`;
 
     }
+
     modalImg.style.cssText = "width:450px;height:400px;object-fit:contain;";
-    modalBig.appendChild(modalImg);
-    modalfoo.style.cssText = "display:flex;flex-direction:row;justify-content:space-around; flex-wrap:nowrap;"
-    for (let i = 0; i < modalfoo.children.length; i++) {
-        modalfoo.children[i].style.cssText = "width:100px;height:100px;margin:10px;";
+
+    if (screen.availWidth <= 370) {
+        modalImg.style.cssText = "width:300px;height:300px;"
+        // modalImgs.forEach((e) => { e.style.setProperty("width", "10px"); e.style.setProperty("height", "10px") })
+        console.log(modalImgs);
     }
+
+    modalBig.appendChild(modalImg);
+
+    modalfoo.style.cssText = "display:flex;flex-direction:row;justify-content:space-around; flex-wrap:nowrap;"
+
     modalBig.appendChild(buttonright);
     modalBig.appendChild(buttonleft);
 
 })
 let counter = 1;
 buttonright.addEventListener("click", function () {
+    modalImg.src = `${window.location.origin}/images/image-product-${(counter % 4) + 1}.jpg`;
     if (githubDomain()) {
 
         modalImg.src = `${window.location.origin}/${window.location.pathname}/images/image-product-${(counter % 4) + 1}.jpg`;
@@ -125,10 +154,9 @@ buttonright.addEventListener("click", function () {
 
 })
 buttonleft.addEventListener("click", function () {
+    modalImg.src = `${window.location.origin}/images/image-product-${(counter % 4) + 1}.jpg`;
     if (githubDomain()) {
-
         modalImg.src = `${window.location.origin}/${window.location.pathname}/images/image-product-${(counter % 4) + 1}.jpg`;
-
     }
 
     counter++;
@@ -163,11 +191,11 @@ let cartIconNot = document.querySelector(".piller");
 let CartBut = document.querySelector(".add");
 CartBut.addEventListener("click", function () {
     items.forEach(obj => {
-
+        cartIconNot = counterPay;
         quantity.innerHTML = 0;
         counterPay = 0;
     })
-    console.log(cartIconNot);
+    // console.log(cartIconNot);
     cartIconNot.innerHTML = counterPay;
     itemsBought.push(items[currentImage - 1]);
 })
@@ -175,11 +203,11 @@ CartBut.addEventListener("click", function () {
 
 // This code is under construction and it's made for navigation changing the color
 let NavBars = Array.from(document.querySelector(".navbar-nav").children)
-console.log(NavBars);
+// console.log(NavBars);
 addEventListener("click", function (e) {
-    console.log(e.target)
+    // console.log(e.target)
     if (e.target.className === "nav-link") {
-        console.log("CLicked");
+        // console.log("CLicked");
         NavBars.forEach((el) => el.classList.remove("navSelected"));
         e.target.classList.add("navSelected");
     }
@@ -211,7 +239,7 @@ let cartingActiv = false;
 let carting = document.querySelector(".cartIcon");
 carting.addEventListener("click", function () {
     if (!cartingActiv) {
-        console.log(counterPay);
+        // console.log(counterPay);
         dropdownHeader.appendChild(textNode);
 
 
@@ -225,52 +253,65 @@ carting.addEventListener("click", function () {
         dropdownCart.appendChild(dropdownHeader);
         dropdownCart.appendChild(dropdownline);
         dropdownCart.appendChild(dropdownCartItems);
-        dropdownCart.style.cssText = `float:right;z-index:100;border:2px solid black;
-        background-color:rgba(255,255,255,100%);width:300px;border-radius:50px;position:absolute;right:150px;bottom:50%;max-height: 300px; /* Adjust as needed */
-            overflow-y: auto;padding:20px;
-        
-        `
-        itemsBought.forEach((obj) => {
-            if (obj["quantity"] > 0) {
-                let singleItemInDrop = document.createElement("div");
-                singleItemInDrop.style.cssText = "display:flex;flex-direction:row;justify-content:space-between;align-items:center;";
+        if (screen.availWidth <= 370) {
+            dropdownCart.style.cssText = `float:top;z-index:100;border:2px solid black;
+            background-color:rgba(255,255,255,100%);width:300px;border-radius:50px;position:absolute;right:30px;bottom:40%;max-height: 300px; /* Adjust as needed */
+                overflow-y: auto;padding:20px;
+            
+            `
+        }
+        else {
+            dropdownCart.style.cssText = `float:top;z-index:100;border:2px solid black;
+            background-color:rgba(255,255,255,100%);width:300px;border-radius:50px;position:absolute;right:150px;bottom:50%;max-height: 300px; /* Adjust as needed */
+                overflow-y: auto;padding:20px;
+            
+            `
+        }
 
-                let imageInCart = document.createElement("img");
-                imageInCart.src = obj["url"].match(regex)[0];
-                imageInCart.style.cssText = `width:100px;height:100px;object-fit:contain;`;
-                singleItemInDrop.appendChild(imageInCart);
-                singleItemInDrop.innerHTML += `<div>
-                <p>Sneakers</p>
-                 <p>${obj["quantity"]} * ${obj["price"]} = ${obj["quantity"] * parseInt(obj["price"])}</p>
-                </div>`;
-                let trash = document.createElement("img");
+        if (itemsBought.length !== 0) {
+            itemsBought.forEach((obj) => {
+                if (obj["quantity"] > 0) {
+                    let singleItemInDrop = document.createElement("div");
+                    singleItemInDrop.style.cssText = "display:flex;flex-direction:row;justify-content:space-between;align-items:center;";
 
-                trash.src = `${window.location.origin}/images/icon-delete.svg`;
-                if (githubDomain()) {
-                    trash.src = `${window.location.origin}/${window.location.pathname}/images/icon-delete.svg`;
+                    let imageInCart = document.createElement("img");
+                    imageInCart.src = obj["url"].match(regex)[0];
+                    imageInCart.style.cssText = `width:100px;height:100px;object-fit:contain;`;
+                    singleItemInDrop.appendChild(imageInCart);
+                    singleItemInDrop.innerHTML += `<div>
+                    <p>Sneakers</p>
+                     <p>${obj["quantity"]} * ${obj["price"]} = ${obj["quantity"] * parseInt(obj["price"])}</p>
+                    </div>`;
+                    let trash = document.createElement("img");
+
+                    trash.src = `${window.location.origin}/images/icon-delete.svg`;
+                    if (githubDomain()) {
+                        trash.src = `${window.location.origin}/${window.location.pathname}/images/icon-delete.svg`;
+
+                    }
+                    trash.addEventListener("click", function () {
+                        this.parentElement.remove();
+                    })
+                    singleItemInDrop.appendChild(trash);
+
+
+                    dropdownCartItems.appendChild(singleItemInDrop);
 
                 }
-                trash.addEventListener("click", function () {
-                    this.parentElement.remove();
-                })
-                singleItemInDrop.appendChild(trash);
 
 
-                dropdownCartItems.appendChild(singleItemInDrop);
-
-            }
-
-            console.log(itemsBought);
 
 
-        })
+            })
+        }
+        else {
 
-        console.log(dropdownCart.style.bottom);
 
+        }
 
 
         dropdownCart.appendChild(dropdownButton);
-        dropdownCart.style.bottom -= `${itemsBought.length * 3}%`;
+
 
         document.body.appendChild(dropdownCart);
 

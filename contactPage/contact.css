@@ -22,7 +22,7 @@
 }
 
 .contactForm form * {
-    margin: 10px;
+    margin: 5px;
 
 
 }
@@ -48,4 +48,44 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+div i {
+    width: auto;
+    height: auto;
+}
+
+.contactInfo {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.contactInfo p {
+    margin-left: 5px;
+}
+
+@media (max-width:700px) {
+    .mainContact {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contactForm {
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .contactFormIntro {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 150px;
+    }
+
+
 }

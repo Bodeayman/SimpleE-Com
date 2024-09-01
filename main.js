@@ -325,4 +325,3 @@ carting.addEventListener("click", function () {
 
 })
 
-

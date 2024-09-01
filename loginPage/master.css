@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+.loginForm {
+    width: 50%;
+    padding: 20px;
+    border-radius: 50px;
+    margin: 10px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+
+    -o-border-radius: 50px;
+}
+
+.loginForm form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+
+}
+
+.loginForm form * {
+    margin: 5px;
+
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+textarea {
+    width: 100%;
+}
+
+.loginForm form div input {
+    width: 100%;
+}
+
+.loginFormIntro {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.mainlogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div i {
+    width: auto;
+    height: auto;
+}
+
+.loginInfo {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.loginInfo p {
+    margin-left: 5px;
+}
+
+@media (max-width:700px) {
+    .mainlogin {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginForm {
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .loginFormIntro {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 150px;
+
+    }
+
+
+}

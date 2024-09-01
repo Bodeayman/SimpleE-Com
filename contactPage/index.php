@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="contact.css">
         <link rel="stylesheet" href="../master.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="../bootstrap.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <!-- <script src="https://cdn.tailwindcss.com"></script> -->
@@ -30,19 +29,19 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Collection</a>
+                            <a class="nav-link" href="../index.php">Offers<a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Men</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Women</a>
+                            <a class="nav-link" href="../aboutPage/index.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="../mainStore/index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contactPage/contact.html">Contact</a>
+                            <a class="nav-link" href="index.php">Contact</a>
                         </li>
 
                     </ul>
@@ -73,33 +72,13 @@
             </div>
             <!-- Added the background color for the form writing and we will php soon  -->
             <div class="contactForm bg bg-light">
-                <form>
-                    <div>
-                        <div>
-                            <label for="name">First Name</label>
-
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Enter your name" id="name">
-
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <label for="emailing">Email</label>
-
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Enter your account" id="emailing">
-
-                        </div>
-                    </div>
+                <form action="surveySend.php" method="post">
                     <div>
                         <div>
                             <label for="comm">Comments</label>
                         </div>
                         <div>
-                            <textarea col="80" rows="7" id="comm"></textarea>
+                            <textarea col="80" rows="7" id="comm" name="surveyText"></textarea>
 
                         </div>
 
@@ -120,11 +99,9 @@
             </div>
 
         </div>
+        <script src="../bootstrap.bundle.min.js"></script>
+        <script src="../avaterCheck.js"></script>
 
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
 
     </body>
 

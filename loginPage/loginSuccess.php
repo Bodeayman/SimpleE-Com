@@ -1,19 +1,30 @@
 <?php
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../checkoutPage/index.php");
 }
+session_unset();
 ?>
 
 <div class="container">
-    <div class="d-flex" style="flex-direction:row;justify-content:space-between;">
+    <div class="d-flex" style="flex-direction:column;justify-content:center;align-items:center;">
         <!-- This is for the login page and this is the php code for work -->
         <div>
+
             <h2 class="title">Welcome back <?php echo $_COOKIE["userName"] ?> </h2>
             <p>You can navigate your services powerfully</p>
         </div>
 
         <div>
-            <img src="../images/image-avatar.png">
+            <img class="avater" src=<?php
+            if (isset($_COOKIE["userPhoto"])) {
+                echo "..\loginPage\uploads\avatars\\" . $_COOKIE["userPhoto"];
+
+
+            } else {
+                echo "../images/image-avatar.png";
+            }
+            ?> style="width:50px;height:50px;border-radius:50px;">
 
         </div>
         <form style="margin-top:20px;" method="post" action="logout.php">
@@ -24,7 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Logout
             </button>
         </form>
-
+        <style>
+            button {
+                margin: 20px;
+            }
+        </style>
     </div>
 
 

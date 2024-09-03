@@ -5,24 +5,27 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <img class="navbar-brand" src="../images/logo.svg">
+        <!-- <img class="navbar-brand" src="../images/logo.svg"> -->
+        <h1 class="navbar-brand">
+            JimTan
+        </h1>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Offers<a>
+                    <a class="nav-link" href="../index.php">Offers<a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Men</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="../aboutPage/index.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../mainStore/index.html">Home</a>
+                    <a class="nav-link" href="../mainStore/index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Contact</a>
+                    <a class="nav-link" href="../contactPage/index.php">Contact</a>
                 </li>
 
             </ul>
@@ -40,7 +43,13 @@
                     </span>
                 </div>
             </div>
-            <img class="avater" src="../images/image-avatar.png">
+            <img class="avater" src=<?php
+            if (isset($_COOKIE["userPhoto"])) {
+                echo "..\loginPage\uploads\avatars\\" . $_COOKIE["userPhoto"];
+            } else {
+                echo "../images/image-avatar.png";
+            }
+            ?> style="width:50px;height:50px;border-radius:50px;">
         </ul>
 
     </div>

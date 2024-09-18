@@ -32,7 +32,7 @@ if ($conn) {
 
 
         if ($_POST["action"] == "Login") {
-            $sql = "SELECT * FROM $table WHERE email = '$email' and  pass = '$pass'";
+            $sql = "SELECT * FROM $table WHERE email = '$email' and  pass = '$pass' and naming = '$name'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
 
@@ -41,24 +41,24 @@ if ($conn) {
 
                     setcookie("userPhoto", $result->fetch_assoc()["images"], strtotime("+1 months"), "/");
 
-                }
+                    }
 
                 thanksforLogin();
-            } else {
+                } else {
                 // echo '<script>window.alert("Wrong Email or Username");</script>';
-                $_SESSION["error"] = "Wrong Email or Password";
+                $_SESSION["error"] = "Wrong Email or Password or UserName";
 
                 // it will run the window.alert method until it works 
                 header("Location: index.php");
 
 
-            }
-        } else if ($_POST["action"] == "Register") {
+                }
+            } else if ($_POST["action"] == "Register") {
             if ($_FILES["image"]['name'] == "") {
                 $_SESSION["error"] = "Please upload a profile image"; // this is the error i you didn't upload
                 header("Location: index.php");
 
-            } else {
+                } else {
                 $sql = "SELECT * FROM $table WHERE email = '$email' and pass = '$pass' ";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
@@ -68,7 +68,7 @@ if ($conn) {
 
                     header("Location: index.php");
 
-                } else {
+                    } else {
                     $sql = "insert into $table (naming,email,images,customer_id,pass) values('$name','$email','$avater'," . rand(0, 10000) . ",'$pass')";
                     $result = $conn->query($sql);
                     if (!isset($_COOKIE["userName"])) {
@@ -77,26 +77,26 @@ if ($conn) {
                         setcookie("userPhoto", $avater, strtotime("+1 months"), "/");
 
 
-                    }
+                        }
                     thanksforLogin();
+                    }
                 }
-            }
             // SELECT * FROM $table WHERE name = '$name' AND email = '$email'
 
 
-        } else {
+            } else {
 
             die("Invalid Register action");
+            }
+
         }
 
+    } else {
+    header("Refresh:2;url='index.php'");
     }
 
-} else {
-    header("Refresh:2;url='index.php'");
-}
-
 function thanksforLogin()
-{
+    {
     echo <<<"Log"
     <div class="alert alert-success">Wait a moment , we will log you in</div>
     <div class="spinner-border" role="status" style="text-align: center; margin-left: 50%; margin-top: 10%;"><span class="visually-hidden text-warning">Loading...</span></div>
@@ -108,4 +108,4 @@ function thanksforLogin()
     exit;
     // the Refresh will work after the login and register success message with 3 sedconds
 
-}
+    }

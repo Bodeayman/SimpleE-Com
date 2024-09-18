@@ -16,7 +16,7 @@
                     <a class="nav-link" href="../index.php">Offers<a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Men</a>
+                    <a class="nav-link" href="../checkoutPage/index.php">Checkout</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../aboutPage/index.php">About</a>

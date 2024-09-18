@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
         header("Location: ../checkoutPage/index.php");
-    } else if ($_POST["logout"] == "Logout") {
+        } else if ($_POST["logout"] == "Logout") {
         setcookie("userName", $_COOKIE["userName"], time() - 1, "/");
         setcookie("userPhoto", $_COOKIE["userPhoto"], time() - 1, "/");
         session_unset();
@@ -18,7 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         Log;
 
         header("Refresh:1; url='index.php'");
+        } else if ($_POST["logout"] == "NewItem") {
+        header("Refresh:0; url = '../NewProduct/index.php'");
+        } else if ($_POST["logout"] == "Record") {
+        header("Refresh:0; url = '../Records/index.php");
+        }
     }
-}
 
 ?>

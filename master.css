@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .nav-item,
 .navbar-brand {
     margin: 20px;
@@ -253,21 +259,3 @@
 
 
 }
-
-/* .cartSec {
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.cartSec .cartIcon {
-    margin: 10px;
-    width: 20px;
-    height: 20px;
-}
-
-.cartSec .avater {
-    margin: 10px;
-    width: 50px;
-    height: 50px;
-} */

@@ -9,7 +9,7 @@ session_unset();
 <div class="container">
     <div class="d-flex" style="flex-direction:column;justify-content:center;align-items:center;">
         <!-- This is for the login page and this is the php code for work -->
-        <div>
+        <div class="text-center">
 
             <h2 class="title">Welcome back <?php echo $_COOKIE["userName"] ?> </h2>
             <p>You can navigate your services powerfully</p>
@@ -31,10 +31,18 @@ session_unset();
             <button class="btn btn-primary" type="submit" name="logout" value="Checkout">
                 Looking for checkout your items
             </button>
-            <button class="btn btn-primary" type="submit" name="logout" value="Logout">
+            <button class="btn btn-success" name="logout" value="NewItem">
+                Add new Items
+            </button>
+            <button class="btn btn-info" name="logout" value="Record" type="submit">
+                Items that Bought
+            </button>
+            <button class="btn btn-danger" type="submit" name="logout" value="Logout">
                 Logout
             </button>
+
         </form>
+
         <style>
             button {
                 margin: 20px;

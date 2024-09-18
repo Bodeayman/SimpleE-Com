@@ -23,27 +23,27 @@ function createLoader() {
 }
 
 
-async function callElements(regex) {
+function callElements(regex) {
     createLoader(); // this is the beginning of the loading in the page
 
-    ShownElements = document.createElement('div');
-    ShownElements.style.cssText = "display:flex;flex-direction:row;flex-wrap:wrap;"
-    const url = 'https://ali-express1.p.rapidapi.com/categories';
-    const options = {
-        method: 'GET',
-        headers: {
-            'x-rapidapi-key': '787daaab33msh8a34d6f0372e10ep156dabjsn66a7904e1365',
-            'x-rapidapi-host': 'ali-express1.p.rapidapi.com'
-        }
-    };
+    // ShownElements = document.createElement('div');
+    // ShownElements.style.cssText = "display:flex;flex-direction:row;flex-wrap:wrap;"
+    // const url = 'https://ali-express1.p.rapidapi.com/categories';
+    // const options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'x-rapidapi-key': '787daaab33msh8a34d6f0372e10ep156dabjsn66a7904e1365',
+    //         'x-rapidapi-host': 'ali-express1.p.rapidapi.com'
+    //     }
+    // };
 
-    try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
+    // try {
+    //     const response = await fetch(url, options);
+    //     const result = await response.text();
+    //     console.log(result);
+    // } catch (error) {
+    //     console.error(error);
+    // }
     fetch('https://ali-express1.p.rapidapi.com/categories', { method: "GET", })
         .then(data => console.log(data))
         .then(res => res.json())

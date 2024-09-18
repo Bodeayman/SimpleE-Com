@@ -1,11 +1,19 @@
 <style>
     footer {
-        position: absolute;
-        top: 150%;
-        height: 20vh;
+
+        height: auto;
         background-color: #222;
         color: white;
         width: 100%;
+        padding: 20px;
+        margin-top: auto;
+
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
     }
 </style>
 <footer>

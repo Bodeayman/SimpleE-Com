@@ -1,0 +1,26 @@
+.aboutInfo {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+}
+
+.aboutInfo li {
+    margin: 20px;
+}
+
+.aboutInfo h1 {
+    margin: 20px;
+}
+
+.FAQ * {
+    margin: 20px;
+}
+
+h3::before {
+    content: 'Q:  ';
+}
+
+h4::before {
+    content: 'A:  ';
+}
